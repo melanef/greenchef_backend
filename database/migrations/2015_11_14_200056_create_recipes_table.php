@@ -19,6 +19,7 @@ class CreateRecipesTable extends Migration
             $table->integer('criador')->unsigned();
             $table->tinyInteger('dificuldade');
             $table->tinyInteger('quantidade');
+            $table->decimal('valor', 5, 2);
             $table->timestamps();
 
             $table->foreign('criador')->references('id')->on('usuarios');

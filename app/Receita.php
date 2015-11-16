@@ -11,7 +11,7 @@ class Receita extends Model
 {
     protected $table = 'receitas';
 
-    protected $fillable = ['nome', 'dificuldade', 'quantidade', 'image'];
+    protected $fillable = ['nome', 'dificuldade', 'quantidade', 'imagem', 'valor'];
 
     public function etapas()
     {

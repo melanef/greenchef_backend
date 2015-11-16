@@ -29,6 +29,11 @@ class APIController extends Controller
         $etapas = $receita->etapas()->get();
 
         $responseJson = [
+            "name" => $receita->nome,
+            "dificulty" => $receita->dificuldade,
+            "quantity_of_people" => $receita->quantidade,
+            "value" => $receita->valor,
+            "image" => $receita->imagem,
             "stages" => [],
         ];
 
@@ -115,5 +120,16 @@ class APIController extends Controller
         ] ;
 
         return Response::json($responseJson, 200);
+    }
+
+    public function order(Request $request)
+    {
+        $order_data = Request::only('address', 'number', 'complement', 'quantity_of_people', 'recipe_id', 'payment_method');
+        
+        $receita = Receita::findOrFail($order_data['recipe_id']);
+        if($receita)
+        {
+            
+        }
     }
 }

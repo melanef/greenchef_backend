@@ -72,8 +72,8 @@ class AuthController extends Controller
         $credentialsInputs = Request::only('email', 'password');
         // Mock para pegar access_token para o usuário do Amauri
         //$credentialsInputs = [
-        //    'email' => 'amaurimelojunior@gmail.com',
-        //    'password' => 'amjsenha',
+        //    'email' => 'example@example.com',
+        //    'password' => 'teste123',
         //];
         if(Auth::once($credentialsInputs))
         {
