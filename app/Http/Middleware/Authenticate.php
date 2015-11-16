@@ -37,6 +37,8 @@ class Authenticate
     public function handle($request, Closure $next)
     {
         $headers = $request->header();
+        // Mock usando usuário do Amauri
+        //$headers['authorization'] = ['Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ3JlZW5jaGVmLW1lbGFuZWYuYzkuaW9cL2dyZWVuY2hlZlwvcHVibGljXC8iLCJhdWQiOjEsImlhdCI6MTQ0NzcxMTIzNiwiZXhwIjoxNDQ3NzExMjM2fQ.E1qIU-9X4n_tDgkKzytAHxwaNp1Jo-XcjCUD0JD4kRw'];
         $decoded = null;
         if(!empty($headers['authorization']))
         {
@@ -44,15 +46,17 @@ class Authenticate
             try
             {
                 $this->decoded = \JWT::decode($jwt, \Config::get('app.secretKey'), array('HS256'));
+
                 //Coloca o usuario do jwt no request
                 $customUserResolver = function() {
-                    $user = \DB::table('users')->find($this->decoded->aud);
+                    $user = \DB::table('usuarios')->find($this->decoded->aud);
                     return $user;
                 };
                 $request->setUserResolver($customUserResolver);
             }
             catch (Exception $e)
             {
+                //return response($e->getMessage(), 401);
                 // * @throws DomainException              Algorithm was not provided
                 // * @throws UnexpectedValueException     Provided JWT was invalid
                 // * @throws SignatureInvalidException    Provided JWT was invalid because the signature verification failed
