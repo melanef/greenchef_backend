@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->boolean('aceita_gluten')->default(true);
             $table->boolean('aceita_leite')->default(true);
             $table->boolean('aceita_ovo')->default(true);
+            $table->string('genero', 45)->nullable();
+			$table->string('device_token', 200)->nullable();
+			$table->string('plataforma', 10)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -14,10 +14,14 @@
 use App\Receita;
 use Illuminate\Http\Request;
 
-Route::get('/recipes', 'APIController@list_recipes');
-Route::get('/recipe/{id}', 'APIController@get_recipe');
+Route::group(['prefix' => 'api/v1'], function() {
+    Route::get('/recipes', 'APIController@list_recipes');
+    Route::get('/recipe/{id}', 'APIController@get_recipe');
 
-Route::get('/options/ingredients', 'APIController@ingredient_options');
-Route::post('/options/ingredient/include', 'APIController@include_ingredient');
-Route::post('/options/ingredient/exclude', 'APIController@exclude_ingredient');
+    Route::get('/options/ingredients', 'APIController@ingredient_options');
+    Route::post('/options/ingredient/include', 'APIController@include_ingredient');
+    Route::post('/options/ingredient/exclude', 'APIController@exclude_ingredient');
 
+    Route::post('/auth/signin', 'Auth\AuthController@signIn');
+    //Route::get('/auth/signin', 'Auth\AuthController@signIn');
+});

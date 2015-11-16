@@ -18,6 +18,13 @@ class IngredientsSeeder extends Seeder
             'password' => bcrypt('amjsenha')
         ]);
 
+        DB::table('usuarios')->insert([
+            'nome' => 'Example User',
+            'sobrenome' => '',
+            'email' => 'example@example.com',
+            'password' => bcrypt('teste123')
+        ]);
+
         DB::table('receitas')->insert([
             'nome' => 'Escondidinho',
             'quantidade' => 4,

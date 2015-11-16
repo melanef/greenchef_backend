@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use Auth;
+use Input;
+use Request;
+use Response;
 use Validator;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -61,5 +65,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function signIn()
+    {
+        $credentialsInputs = Request::only('email', 'password');
+        if(Auth::once($credentialsInputs))
+        {
+            $user = Auth::user();
+            $user->device_token = Request::input('device_token');
+            $user->plataforma = Request::input('platform');
+            $user->save();
+            $jwt = $user->generateJWT();
+            return Response::json([
+                'data' => [
+                    'access_token' => $jwt,
+                     'user' => $user,
+                ]
+            ], 200);
+        }
+        else
+        {
+            return Response::make('Unauthorized', 401);
+        }
     }
 }

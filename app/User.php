@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Config;
+use JWT;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -28,7 +30,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'sobrenome', 'email', 'password', 'aceita_carne', 'aceita_gluten', 'aceita_leite', 'aceita_ovo'];
+    protected $fillable = ['name', 'sobrenome', 'email', 'password', 'data_nascimento', 'aceita_carne', 'aceita_gluten', 'aceita_leite', 'aceita_ovo'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -45,5 +47,17 @@ class User extends Model implements AuthenticatableContract,
     public function pedidos()
     {
         return $this->hasMany(Pedido::class);
+    }
+
+    public function generateJWT()
+    {
+        $infoArr = [
+            'iss' => Config::get('app.url'), //iss: the issuer
+            'aud' => $this->id, //aud: the audience
+            'iat' => time(), //iat: the issued at timestamp
+            'exp' => time() + Config::get('app.expirationTime'), //exp: expiration time
+        ];
+        $jwt = JWT::encode($infoArr, Config::get('app.secretKey'));
+        return $jwt;
     }
 }
