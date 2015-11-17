@@ -15,12 +15,12 @@ class CreateOrderItemsTable extends Migration
         Schema::create('pedido_itens', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pedido')->unsigned();
-            $table->integer('quantidade');
-            $table->string('medida');
-            $table->string('quantidade_nominal');
+            $table->integer('ingrediente')->unsigned();
+            $table->string('descricao');
             $table->timestamps();
 
             $table->foreign('pedido')->references('id')->on('pedidos');
+            $table->foreign('ingrediente')->references('id')->on('ingredientes');
         });
     }
 

@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('receita')->unsigned();
             $table->tinyInteger('quantidade')->unsigned();
             $table->enum('status',['pendente', 'pago', 'entregue', 'cancelado'])->default('pendente');
+            $table->enum('metodo_de_pagamento', ['cash', 'credit_card']);
             $table->decimal('valor', 5, 2);
             $table->timestamps();
 

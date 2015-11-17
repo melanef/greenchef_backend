@@ -8,7 +8,7 @@ class Pedido extends Model
 {
     protected $table = 'pedidos';
 
-    protected $fillable = ['quantidade', 'status'];
+    protected $fillable = ['quantidade', 'status', 'valor', 'metodo_de_pagamento'];
 
     public function endereco()
     {

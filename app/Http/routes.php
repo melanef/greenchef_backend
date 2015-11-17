@@ -25,4 +25,6 @@ Route::group(['prefix' => 'api/v1'], function() {
     Route::post('/auth/signin', 'Auth\AuthController@signIn');
     // Mock para pegar access_token para o usuário do Amauri
     //Route::get('/auth/signin', 'Auth\AuthController@signIn');
+
+    Route::post('/order', 'APIController@order');
 });

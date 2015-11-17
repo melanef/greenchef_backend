@@ -15,13 +15,14 @@ class CreateAddressesTable extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario')->unsigned();
-            $table->string('nome');
+            $table->string('nome')->nullable();
             $table->string('logradouro');
             $table->integer('numero')->unsigned();
-            $table->string('bairro');
-            $table->string('municipio');
-            $table->string('uf');
-            $table->string('cep');
+            $table->string('complemento');
+            $table->string('bairro')->nullable();
+            $table->string('municipio')->nullable();
+            $table->string('uf')->nullable();
+            $table->string('cep')->nullable();
             $table->boolean('padrao')->default(false);
             $table->timestamps();
 

@@ -41,12 +41,19 @@ class User extends Model implements AuthenticatableContract,
 
     public function receitas()
     {
-        return $this->hasMany(Receita::class);
+        return $this->hasMany(Receita::class, 'criador');
     }
 
+    /*
     public function pedidos()
     {
-        return $this->hasMany(Pedido::class);
+        return $this->hasMany(Pedido::class, );
+    }
+    */
+
+    public function enderecos()
+    {
+        return $this->hasMany(Endereco::class, 'usuario');
     }
 
     public function generateJWT()
