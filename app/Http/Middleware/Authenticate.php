@@ -37,6 +37,7 @@ class Authenticate
     public function handle($request, Closure $next)
     {
         $headers = $request->header();
+
         // Mock usando usuário do Amauri
         //$headers['authorization'] = ['Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ3JlZW5jaGVmLW1lbGFuZWYuYzkuaW9cL2dyZWVuY2hlZlwvcHVibGljXC8iLCJhdWQiOjEsImlhdCI6MTQ0NzcxMTIzNiwiZXhwIjoxNDQ3NzExMjM2fQ.E1qIU-9X4n_tDgkKzytAHxwaNp1Jo-XcjCUD0JD4kRw'];
         $decoded = null;
