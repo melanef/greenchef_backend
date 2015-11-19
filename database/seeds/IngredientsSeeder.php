@@ -129,14 +129,14 @@ class IngredientsSeeder extends Seeder
             'descricao' => '1/2 kg de brocolis cozidos e picados',
         ]);
 
-        DB::table('ingredientes')->insert([
-            'nome' => 'alho',
-        ]);
-
         DB::table('etapa_ingredientes')->insert([
             'etapa' => 1,
             'ingrediente' => 3,
             'descricao' => '2 colheres de manteiga ou de azeite',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'alho',
         ]);
 
         DB::table('etapa_ingredientes')->insert([
@@ -204,7 +204,7 @@ class IngredientsSeeder extends Seeder
         ]);
 
         DB::table('ingredientes')->insert([
-            'nome' => 'mussarela',
+            'nome' => 'queijo mussarela',
             'derivado_leite' => true,
         ]);
 
@@ -272,6 +272,174 @@ class IngredientsSeeder extends Seeder
         DB::table('etapa_passos')->insert([
             'etapa' => 1,
             'instrucao' => 'Levar ao forno por mais ou menos 20 minutos ou até dourar.'
+        ]);
+
+        DB::table('receitas')->insert([
+            'nome' => 'Lasanha de beringela',
+            'quantidade' => 4,
+            'dificuldade' => 3,
+            'criador' => 1,
+        ]);
+
+         DB::table('etapas')->insert([
+            'receita' => 2,
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'berinjela',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 17,
+            'descricao' => '2 a 3 berinjelas cortadas em fatias',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'óleo',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 18,
+            'descricao' => 'Fio de óleo',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 5,
+            'descricao' => '1 cebola picada',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 10,
+            'descricao' => '4 dentes de alho triturados',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'pimentão vermelho',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 19,
+            'descricao' => '1 colher (sopa) de pimentão vermelho picado',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'orégano',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 20,
+            'descricao' => '1 colher (chá) de orégano',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'manjericão',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 21,
+            'descricao' => '2 colheres (sopa) de manjericão picado',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'pimenta-do-reino',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 22,
+            'descricao' => 'Pimenta-do-reino a gosto',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 8,
+            'descricao' => 'Sal a gosto',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'açúcar',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 23,
+            'descricao' => 'Pitada de açúcar',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'tomate',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 24,
+            'descricao' => '2 latas de tomate pelado picado ou se preferir molho de tomate',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 16,
+            'descricao' => '100g de queijo mussarela fatiado',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'queijo branco',
+            'derivado_leite' => true,
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 25,
+            'descricao' => '200g de queijo branco',
+        ]);
+
+        DB::table('ingredientes')->insert([
+            'nome' => 'queijo parmesão',
+            'derivado_leite' => true,
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 26,
+            'descricao' => 'Queijo parmesão para salpicar',
+        ]);
+
+        DB::table('etapa_ingredientes')->insert([
+            'etapa' => 2,
+            'ingrediente' => 21,
+            'descricao' => 'Manjericão para salpicar',
+        ]);
+
+        DB::table('etapa_passos')->insert([
+            'etapa' => 2,
+            'instrucao' => 'Corte as berinjelas no sentido longitudinal, e cozinhe-as em água fervente com sal por aproximadamente 4 minutos, escorra e coloque em uma tigela com gelo para cessar o cozimento, escorra novamente e seque cada fatia.'
+        ]);
+
+        DB::table('etapa_passos')->insert([
+            'etapa' => 2,
+            'instrucao' => 'Em uma panela, coloque o óleo e refogue a cebola, o alho, o pimentão picado, o orégano, o sal, a pimenta e manjericão. Adicione o tomate pelado e uma pitada de açúcar. Deixe apurar um pouco e reserve.'
+        ]);
+
+        DB::table('etapa_passos')->insert([
+            'etapa' => 2,
+            'instrucao' => 'Em uma travessa untada, disponha uma camada de molho, uma camada de berinjela, uma cama de queijo (branco e mussarela), outra de berinjela, outra camada de molho, e siga alternando as camadas e finalizando com os queijos.'
+        ]);
+
+        DB::table('etapa_passos')->insert([
+            'etapa' => 2,
+            'instrucao' => 'Salpique queijo parmesão ralado.'
+        ]);
+
+        DB::table('etapa_passos')->insert([
+            'etapa' => 2,
+            'instrucao' => 'Leve ao forno pré-aquecido 180° por 20 minutos, ou até dourar.'
         ]);
     }
 }
